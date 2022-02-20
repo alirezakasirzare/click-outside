@@ -15,4 +15,14 @@ allElements.forEach((element) => {
   }
 });
 // create the clickoutside event
-const event = new CustomEvent("clickoutside");
+const clickoutsideEvent = new CustomEvent("clickoutside");
+// target the event
+document.addEventListener("click", (e) => {
+  elementsHaveClickoutsideEvent.forEach((item) => {
+    let element = item.element;
+    let isClickInsideElement = element.contains(event.target);
+    if (!isClickInsideElement) {
+      item.element.dispatchEvent(clickoutsideEvent);
+    }
+  });
+});
