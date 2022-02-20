@@ -14,3 +14,5 @@ allElements.forEach((element) => {
     elementsHaveClickoutsideEvent.push(newItem);
   }
 });
+// create the clickoutside event
+const event = new CustomEvent("clickoutside");
